@@ -31,7 +31,7 @@ public class SunCode {
         gc.setOpen(false);//是否打开资源管理器
         gc.setFileOverride(false);//是否覆盖原来生成的
         gc.setServiceName("%sService");//去Service的I前缀;
-        gc.setIdType(IdType.ID_WORKER);
+        gc.setIdType(IdType.NONE);
         gc.setDateType(DateType.ONLY_DATE);//日期类型
         gc.setSwagger2(true);
         mpg.setGlobalConfig(gc);
@@ -39,7 +39,7 @@ public class SunCode {
         //设置数据源
         DataSourceConfig dsc = new DataSourceConfig();
 
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/febs_base_matter?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/kuaidi?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("");
@@ -49,8 +49,8 @@ public class SunCode {
         //3.包的配置
         PackageConfig pc = new PackageConfig();
 
-        pc.setModuleName("blog");
-        pc.setParent("cn.laike.management");
+        pc.setModuleName("user");
+        pc.setParent("com.laike.kuaidi");
         pc.setEntity("entity");
         pc.setMapper("mapper");
         pc.setService("service");
@@ -60,7 +60,7 @@ public class SunCode {
 
         //4策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("t_remind");//设置映射表名
+        strategy.setInclude("t_user");//设置映射表名
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
